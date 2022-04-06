@@ -9,7 +9,9 @@
     "react-dom": "^18.0.0",
     "react-popper": "1.3.6",
     "react-scripts": "5.0.0",
-    "reactstrap": "8.5.1"
+    "reactstrap": "8.5.1",
+    "vitals": "^0.1.2",
+    "web": "0.0.2"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -34,5 +36,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/reactstrap": "^8.7.2"
   }
 }
