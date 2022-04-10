@@ -4,6 +4,7 @@ import Directory from './DirectoryComponent';
 import CampsiteInfo from './CampsiteInfoComponent';
 import { CAMPSITES } from '../shared/campsites';
 
+
 class Main extends Component {
     constructor(props) {
         super(props);
