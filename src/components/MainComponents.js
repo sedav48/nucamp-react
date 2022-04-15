@@ -4,7 +4,11 @@ import Header from './HeaderComponent';
 import Footer from './FooterComponent';
 import Home from './HomeComponent';
 import { Switch, Route, Redirect } from 'react-router-dom';
+import Contact from './ContactComponent';
 import CampsiteInfo from './CampsiteInfoComponent';
+import { COMMENTS } from '../shared/comments';
+import { PARTNERS } from '../shared/partners';
+import { PROMOTIONS } from '../shared/promotions';
 import { CAMPSITES } from '../shared/campsites';
 
 
@@ -14,14 +18,24 @@ class Main extends Component {
         super(props);
         this.state = {
             campsites: CAMPSITES,
+            comments: COMMENTS,
+            partners: PARTNERS,
+            promotions: PROMOTIONS
             
         };
+    }
+    onCampsiteSelect(campsite) {
+        this.setState({selectedCampsite: campsite});
     }
    
     render () {
         const HomePage = () => {
             return (
-                <Home />
+                <Home
+                    campsite={this.state.campsites.filter(campsite => campsite.featured)[0]}
+                    promotion={this.state.promotions.filter(promotion => promotion.featured)[0]}
+                    partner={this.state.partners.filter(partner => partner.featured)[0]}
+                     />
             );
         };
     
@@ -32,6 +46,7 @@ class Main extends Component {
                 <Switch>
                     <Route path ='/home' component={HomePage} />
                     <Route exact path='/directory' render={() => <Directory campsites={this.state.campsites} />} />
+                    <Route exact path='/contactus' component={Contact} />
                     <Redirect to='/home' />
                 </Switch>
                 <Footer />
