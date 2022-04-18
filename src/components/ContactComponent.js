@@ -14,6 +14,12 @@ class Contact extends Component {
             agree: false,
             contactType: 'By Phone',
             feedback: '',
+            touched: {
+                firstName: false,
+                lastName: false,
+                phoneNum: false,
+                email: false
+            }
         };
 
         this.handleInputChange = this.handleInputChange.bind(this);
@@ -43,7 +49,8 @@ class Contact extends Component {
             firstName: '',
             lastName: '',
             phoneNum: '',
-            email: ''
+            email: '',
+            
         };
     
     if (this.state.touched.firstName) {
