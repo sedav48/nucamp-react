@@ -117,20 +117,20 @@ class Contact extends Component {
                                 <Control.checkbox
                                 model=".agree"
                                 name="agree"
-                                className="form-check-input"/> {' '}
+                                className="form-check-input" /> {' '}
                             <strong>May we contact you?</strong>
-                        </Label>
-                    </div>
-                </Col>
-                <Col md={4}>
-                    <Control.select model=".contactType" name="contactType"
+                            </Label>
+                        </div>
+                    </Col>
+                    <Col md={4}>
+                        <Control.select model=".contactType" name="contactType"
                             className="form-control">
                         <option>By Phone</option>
                         <option>By Email</option>
-                    </Control.select>
-                </Col>
-            </Row>
-            <Row className="form-group">
+                        </Control.select>
+                    </Col>
+                </Row>
+                <Row className="form-group">
                 <Label htmlFor="feedback" md={2}>Your Feedback</Label>
                 <Col md={10}>
                     <Control.textarea model=".feedback" id="feedback" name="feedback"
