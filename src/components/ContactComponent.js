@@ -82,8 +82,7 @@ class Contact extends Component {
                                          placeholder="First Name"
                                          className="form-control"
                                           />
-                                    
-                                </Col>
+                                 </Col>
                         </Row>
                         <Row className="form-group">
                             <Label htmlFor="lastName" md={2}>Last Name</Label>

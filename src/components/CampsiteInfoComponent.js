@@ -1,25 +1,23 @@
 import React from 'react';
 import { Card, CardImg, CardText, CardBody, Button, Breadcrumb, BreadcrumbItem } from 'reactstrap';
-import { Component } from 'reactstrap';
+import { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-
-
-class CommentForm extends Component {
+ class CommentForm extends Component {
     
-    render() {
+     render() {
        
-        return (
-            <div>
-            <Button outline onClick={this.toggle.Modal} type="submit" value="submit" color="secondary">
-                <i className="fa fa-pencil fa-lg" />
-                     Submit Comment
+         return (
+             <div>
+             <Button outline onClick={this.toggle.Modal} type="submit" value="submit">
+                 <i className="fa fa-pencil fa-lg" />
+                      Submit Comment
             </Button>
-            </div>
-         )
-    };
+             </div>
+          )
+     };
         
-};
+ };
 
 
 
@@ -49,7 +47,7 @@ function RenderCampsite({campsite}) {
                                 {comment.author}, {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(comment.date)))}
                               </div>);
                         })}
-                            <CommentForm />
+                             <CommentForm />
                         </div>
                 );
             }
