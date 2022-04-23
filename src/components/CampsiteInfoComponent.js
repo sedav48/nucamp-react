@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
        
           return (
               <div>
-              <Button outline type="submit" value="submit">
+              <Button outline onClick={this.toggleModal}>
                   <i className="fa fa-pencil fa-lg" />
                        Submit Comment
              </Button>

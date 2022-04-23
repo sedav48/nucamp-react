@@ -1,6 +1,7 @@
 import Home from './HomeComponent';
 import Contact from './ContactComponent';
 import About from "./AboutComponent";
+import CampsiteInfo from './CampsiteInfoComponent';
 import { Component } from 'react';
 import  Header from './HeaderComponent';
 import  Directory from './DirectoryComponent';
@@ -35,9 +36,11 @@ class Main extends Component {
 
         const CampsiteWithId = ({match}) => {
             return (
-                    // eslint-disable-next-line react/jsx-no-undef
-                    <CampsiteInfo campsite={this.props.campsites.filter(campsite => campsite.id === +match.params.campsiteId)[0]}
-                      comments={this.props.comments.filter(comment => comment.campsiteId === +match.params.campsiteId)} />
+                    
+                    <CampsiteInfo
+                      campsite={this.props.campsites.filter(campsite => campsite.id === +match.params.campsiteId)[0]}
+                      comments={this.props.comments.filter(comment => comment.campsiteId === +match.params.campsiteId)}
+                     />
             );
 
         };
