@@ -1,19 +1,112 @@
 import React, {Component} from 'react';
-import { Card, CardImg, CardText, CardBody, Button, Breadcrumb, BreadcrumbItem } from 'reactstrap';
+import { Card, CardImg, CardText, CardBody, Button, Modal, ModalHeader, ModalBody, Breadcrumb, BreadcrumbItem } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import { Control, LocalForm, Errors } from 'react-redux-form';
+
+const maxLength = (len) => (val) => !val || val.length <= len;
+const minLength = (len) => (val) => val && val.length >= len;
 
 
   class CommentForm extends Component {
+      constructor(props) {
+          super(props);
+          this.state = {
+              isModalOpen: false,
+             
+            
+        
+          };
+
+          this.toggleModal = this.toggleModal.bind(this);
+          this.handleSubmit = this.handleSubmit.bind(this);
+      }
+        toggleModal() {
+            this.setState({ isModalOpen: !this.state.isModalOpen });
+        }
+
+        handleSubmit(values) {
+            console.log('Current state is: ' + JSON.stringify(values));
+            alert('Current state is: ' + JSON.stringify(values));
+          
+
+        }
+
+           
+        
     
       render() {
        
           return (
+              <React.Fragment>
               <div>
               <Button outline onClick={this.toggleModal}>
                   <i className="fa fa-pencil fa-lg" />
                        Submit Comment
              </Button>
               </div>
+              <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
+                  <ModalHeader toggle={this.toggleModal}>Submit Comment
+                      <ModalBody>
+                          <LocalForm onSubmit={this.handleSubmit} >
+                              <div className="form-group">
+                                  <label htmlFor="rating">Rating</label>
+                                  <Control.select
+                                    model= ".rating"
+                                    id="rating"
+                                    name="rating"
+                                    className="form-control">
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                    </Control.select>
+                              </div>
+                              <div className="form-group">
+                                  <label htmlFor="author">Your Name</label>
+                                  <Control.text
+                                    model=".author"
+                                    id="author"
+                                    name="author"
+                                    className="form-control"
+                                    placeholder="author" 
+                                    validators={{
+                                        minLength: minLength(2),
+                                        maxLength: maxLength(15),
+                                    }}
+                                />
+                                    <Errors 
+                                    className="text-danger"
+                                    model=".author"
+                                    show="touched"
+                                    component="div"
+                                    messages={{
+                                        minLength: "Must be at least 2 characters",
+                                        maxLength: "Must be 15 characters or less",
+                                    }}
+                                />
+                                  
+                              </div>
+                              <div className="form-group">
+                                  <label htmlFor="comment">Comment</label>
+                                  <Control.textarea
+                                    model=".comment"
+                                    id="comment"
+                                    name="comment"
+                                    className="form-control"
+                                    placeholder="comment"
+                                    rows="6"
+                                    />
+                                
+                              </div>
+                              <div>
+                                  <Button type="submit" value="submit" color="primary">Submit</Button>
+                              </div>
+                          </LocalForm>
+                      </ModalBody>
+                  </ModalHeader>
+              </Modal>
+            </React.Fragment>
            )
       };
         
