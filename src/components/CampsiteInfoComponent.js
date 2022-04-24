@@ -12,43 +12,45 @@ const minLength = (len) => (val) => val && val.length >= len;
           super(props);
           this.state = {
               isModalOpen: false,
-             
-            
-        
-          };
+         };
 
           this.toggleModal = this.toggleModal.bind(this);
           this.handleSubmit = this.handleSubmit.bind(this);
-      }
-        toggleModal() {
-            this.setState({ isModalOpen: !this.state.isModalOpen });
+         }
+        
+         toggleModal() {
+            this.setState({ 
+                isModalOpen: !this.state.isModalOpen
+             });
         }
 
         handleSubmit(values) {
             this.toggleModal();
-            this.props.addComment(this.props.campsiteId, values.rating, values.author, values.text);
-          
-          
-
+            this.props.addComment(
+                this.props.campsiteId, 
+                values.rating, 
+                values.author, 
+                values.text
+            );
         }
 
-        render() {
+    render() {
        
           return (
-              <React.Fragment>
+            <React.Fragment>
               <div>
-              <Button outline onClick={this.toggleModal}>
+                <Button outline onClick={this.toggleModal}>
                   <i className="fa fa-pencil fa-lg" />
                        Submit Comment
-             </Button>
-              </div>
-              <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
-                  <ModalHeader toggle={this.toggleModal}>Submit Comment
-                      <ModalBody>
-                          <LocalForm onSubmit={this.handleSubmit} >
-                              <div className="form-group">
-                                  <label htmlFor="rating">Rating</label>
-                                  <Control.select
+                </Button>
+              
+                    <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
+                        <ModalHeader toggle={this.toggleModal}>Submit Comment </ModalHeader>
+                        <ModalBody>
+                            <LocalForm onSubmit={values => this.handleSubmit(values)} >
+                            <div className="form-group">
+                                <label htmlFor="rating">Rating</label>
+                                <Control.select
                                     model= ".rating"
                                     id="rating"
                                     name="rating"
@@ -59,10 +61,10 @@ const minLength = (len) => (val) => val && val.length >= len;
                                         <option>4</option>
                                         <option>5</option>
                                     </Control.select>
-                              </div>
-                              <div className="form-group">
-                                  <label htmlFor="author">Your Name</label>
-                                  <Control.text
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="author">Your Name</label>
+                                <Control.text
                                     model=".author"
                                     id="author"
                                     name="author"
@@ -73,7 +75,7 @@ const minLength = (len) => (val) => val && val.length >= len;
                                         maxLength: maxLength(15),
                                     }}
                                 />
-                                    <Errors 
+                                <Errors 
                                     className="text-danger"
                                     model=".author"
                                     show="touched"
@@ -95,25 +97,20 @@ const minLength = (len) => (val) => val && val.length >= len;
                                     placeholder="comment"
                                     rows="6"
                                     />
-                                
                               </div>
-                              <div>
-                                  <Button type="submit" value="submit" color="primary">Submit</Button>
-                              </div>
-                          </LocalForm>
-                      </ModalBody>
-                  </ModalHeader>
-              </Modal>
+                              <button>Submit Comment</button>
+                            </LocalForm>
+                        </ModalBody>
+                    </Modal>
+                </div>
             </React.Fragment>
-           )
-      };
+            );
+        }
         
-  };
-
-
-
-function RenderCampsite({campsite}) {
-        return (
+  }
+    
+    function RenderCampsite({campsite}) {
+            return (
                  <div className="col-md-5 m-1">
                         <Card>
                             <CardImg top src={campsite.image} alt={campsite.name} />
@@ -124,9 +121,9 @@ function RenderCampsite({campsite}) {
                         </Card>
                 </div>
         );
-}
-        
-        function RenderComments({comments, addComment, campsiteId}) {
+    }
+    
+    function RenderComments({comments, addComment, campsiteId}) {
             if (comments) {
                 return (
                     <div className="col-md-5 m-1">
@@ -169,10 +166,11 @@ function RenderCampsite({campsite}) {
                          />
                              
                         </div>
-                    </div>
-                );
-            }
-             return <div />
-        }
+             </div>
+         );
+    }
+
+    return <div />
+ }
             
-   export default CampsiteInfo;
+            export default CampsiteInfo;
