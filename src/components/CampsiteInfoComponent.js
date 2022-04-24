@@ -36,9 +36,9 @@ const minLength = (len) => (val) => val && val.length >= len;
 
     render() {
        
-          return (
+        return (
             <React.Fragment>
-              <div>
+              
                 <Button outline onClick={this.toggleModal}>
                   <i className="fa fa-pencil fa-lg" />
                        Submit Comment
@@ -47,7 +47,8 @@ const minLength = (len) => (val) => val && val.length >= len;
                     <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
                         <ModalHeader toggle={this.toggleModal}>Submit Comment </ModalHeader>
                         <ModalBody>
-                            <LocalForm onSubmit={values => this.handleSubmit(values)} >
+                            <LocalForm onSubmit={this.handleSubmit}>
+                            
                             <div className="form-group">
                                 <label htmlFor="rating">Rating</label>
                                 <Control.select
@@ -102,14 +103,14 @@ const minLength = (len) => (val) => val && val.length >= len;
                             </LocalForm>
                         </ModalBody>
                     </Modal>
-                </div>
+                
             </React.Fragment>
             );
         }
         
   }
     
-    function RenderCampsite({campsite}) {
+    function RenderCampsite({ campsite }) {
             return (
                  <div className="col-md-5 m-1">
                         <Card>
@@ -123,11 +124,11 @@ const minLength = (len) => (val) => val && val.length >= len;
         );
     }
     
-    function RenderComments({comments, addComment, campsiteId}) {
+    function RenderComments({ comments, addComment, campsiteId }) {
             if (comments) {
                 return (
                     <div className="col-md-5 m-1">
-                         <h4>Comments</h4>
+                         <h4>Comments:</h4>
                         {comments.map(comment => {
                           return (
                               <div key={comments.id}>
@@ -162,7 +163,7 @@ const minLength = (len) => (val) => val && val.length >= len;
                             <RenderComments 
                                 comments={props.comments}
                                 addComment={props.addComment}
-                                campsite={props.campsite.id}
+                                campsiteId={props.campsite.id}
                          />
                              
                         </div>
