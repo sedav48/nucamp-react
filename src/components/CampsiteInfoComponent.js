@@ -55,13 +55,14 @@ const minLength = (len) => (val) => val && val.length >= len;
                                     model= ".rating"
                                     id="rating"
                                     name="rating"
-                                    className="form-control">
+                                    className="form-control" 
+                                    >
                                         <option>1</option>
                                         <option>2</option>
                                         <option>3</option>
                                         <option>4</option>
                                         <option>5</option>
-                                    </Control.select>
+                                </Control.select>
                             </div>
                             <div className="form-group">
                                 <label htmlFor="author">Your Name</label>
@@ -91,13 +92,14 @@ const minLength = (len) => (val) => val && val.length >= len;
                               <div className="form-group">
                                   <label htmlFor="comment">Comment</label>
                                   <Control.textarea
-                                    model=".comment"
-                                    id="comment"
-                                    name="comment"
+                                    model=".text"
+                                    id="text"
+                                    name="text"
                                     className="form-control"
-                                    placeholder="comment"
+                                    placeholder="Comment"
                                     rows="6"
                                     />
+                                  
                               </div>
                               <button>Submit Comment</button>
                             </LocalForm>
@@ -160,10 +162,11 @@ const minLength = (len) => (val) => val && val.length >= len;
                     </div>
                         <div className="row">
                             <RenderCampsite campsite={props.campsite} />
-                            <RenderComments 
-                                comments={props.comments}
+                            <RenderComments
+                                campsiteId={props.campsite.id} 
                                 addComment={props.addComment}
-                                campsiteId={props.campsite.id}
+                                comments={props.comments} 
+                               
                          />
                              
                         </div>
