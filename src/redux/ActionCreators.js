@@ -13,7 +13,7 @@ export const addComment = (campsiteId, rating, author, text) => ({
 
 export const fetchCampsites = () => dispatch => {
     
-    dispatch(campsitesLoading());
+   dispatch(campsitesLoading());
 
    return fetch(baseUrl + 'campsites')
     .then(response => response.json())
