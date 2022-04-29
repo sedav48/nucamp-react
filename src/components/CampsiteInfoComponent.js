@@ -28,7 +28,7 @@ const minLength = (len) => (val) => val && val.length >= len;
 
         handleSubmit(values) {
             this.toggleModal();
-            this.props.addComment(
+            this.props.postComment(
                 this.props.campsiteId, 
                 values.rating, 
                 values.author, 
@@ -128,7 +128,7 @@ const minLength = (len) => (val) => val && val.length >= len;
         );
     }
     
-    function RenderComments({ comments, addComment, campsiteId }) {
+    function RenderComments({ comments, postComment, campsiteId }) {
             if (comments) {
                 return (
                     <div className="col-md-5 m-1">
@@ -141,7 +141,7 @@ const minLength = (len) => (val) => val && val.length >= len;
                               </div>);
                         })}
                             
-                             <CommentForm campsiteId={campsiteId} addComment={addComment} /> 
+                             <CommentForm campsiteId={campsiteId} postComment={postComment} /> 
                         </div>
                 );
             }
@@ -187,7 +187,7 @@ const minLength = (len) => (val) => val && val.length >= len;
                             <RenderCampsite campsite={props.campsite} />
                             <RenderComments
                                 campsiteId={props.campsite.id} 
-                                addComment={props.addComment}
+                                postComment={props.postComment}
                                 comments={props.comments} 
                                
                          />
