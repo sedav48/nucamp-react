@@ -60,8 +60,9 @@ export const fetchComments = () => dispatch => {
         
         )
         .then(response => response.json())
+       
         .then(comments => dispatch(addComments(comments)))
-        .catch(error => dispatch(commentsFailed(error.messsage)));
+        .catch(error => dispatch(commentsFailed(error.message)));
 };
 
 export const commentsFailed = errMess => ({
@@ -108,6 +109,7 @@ export const postComment = (campsiteId, rating, author, text) => dispatch => {
         error => { throw error; }
         )
         .then(response => response.json())
+        
         .then(response => dispatch(addComment(response)))
         .catch(error => {
             console.log('post comment', error.message);
@@ -136,6 +138,7 @@ export const fetchPromotions = () => dispatch => {
          }
         )
         .then(response => response.json())
+        
         .then(promotions => dispatch(addPromotions(promotions)))
         .catch(error => dispatch(promotionsFailed(error.message)));
 };
