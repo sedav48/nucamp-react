@@ -108,7 +108,7 @@ export const addComment = comment => ({
             }
         },
         error => { throw error; }
-        
+
         )
         .then(response => response.json())
         
@@ -186,7 +186,7 @@ export const fetchPartners = () => dispatch => {
 
 
 
-export const partnersLoading = partners => ({
+export const partnersLoading = () => ({
     type: ActionTypes.PARTNERS_LOADING,
     
 });
@@ -228,12 +228,12 @@ export const postFeedback = (feedback) => {
 
     .then(response => response.json())
     .catch(response => {
-        console.log(`post comment`, response);
+        console.log('post comment', response);
         alert('Thank you for your feedback ' + response);
     })
 
     .catch(error => {
-        console.log(`post comment`, error.message);
+        console.log('post comment', error.message);
         alert(`Your feedback is not shown\nError: ' + error.message`);
     });
 

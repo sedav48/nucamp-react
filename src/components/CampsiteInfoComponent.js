@@ -145,18 +145,18 @@ const minLength = (len) => (val) => val && val.length >= len;
                         {
                         comments.map(comment => {
                           return (
-                              <Fade in key={comment.id}>
-                              <div>
-                                <p>
-                                {comment.text}<br />
-                                --{comment.author}, {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(comment.date)))}
-                                </p>
-                              </div>)
-                             </Fade> 
-                          );
+                                <Fade in key={comment.id}>
+                                    <div>
+                                        <p>
+                                            {comment.text}<br />
+                                            --{comment.author}, {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(comment.date)))}
+                                        </p>
+                                    </div>)
+                                </Fade> 
+                             );
                         })
                     }
-                        </Stagger>
+                    </Stagger>
                             
                              <CommentForm campsiteId={campsiteId} postComment={postComment} /> 
                         </div>
@@ -203,9 +203,9 @@ const minLength = (len) => (val) => val && val.length >= len;
                         <div className="row">
                             <RenderCampsite campsite={props.campsite} />
                             <RenderComments
-                                campsiteId={props.campsite.id} 
-                                postComment={props.postComment}
                                 comments={props.comments} 
+                                postComment={props.postComment}
+                                campsiteId={props.campsite.id}
                                
                          />
                              

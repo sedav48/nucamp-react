@@ -91,9 +91,7 @@ function PartnerList({props}) {
     const partners = props.partners.partners.map(partner => {
          return (
              <div>
-             <Media key={partner.id} tag="li">
-                    <RenderPartner  partner={partner}/>
-            </Media>
+           
             <Fade in key={partner.id}>
                 <Media tag="li" >
                     <RenderPartner partner={partner} />
