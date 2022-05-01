@@ -70,24 +70,27 @@ import { Fade, Stagger } from 'react-animation-components';
     );
  };
 
- function RenderPartner({partner}) {
+ function RenderPartner({ partner }) {
     if ({partner}) {
         return (   
             <React.Fragment>
-                <Media object src={baseUrl + 'partner.image'} alt={partner.name} width="150" />
+                <Media object src={baseUrl + partner.image} alt={partner.name} width="150" />
                 <Media body className="ml-5 mb-4" >
-                        <Media heading>{partner.name}</Media>
-                           {partner.description}
-                        </Media>
+                    <Media heading>
+                        {partner.name}
+                    </Media>
+                        {partner.description}
+                    </Media>
             </React.Fragment>
-                       );
+         );
                    
-                 }
-                  return <div />;
-           }
+     }
+        return <div />
+}
 
       
-function PartnerList({props}) {
+function PartnerList(props) {
+
     const partners = props.partners.partners.map(partner => {
          return (
              <div>

@@ -4,7 +4,14 @@ import { Loading } from './LoadingComponent';
 import { baseUrl } from '../shared/baseUrl';
 import { FadeTransform } from 'react-animation-components';
 
-function RenderCard({item, isLoading, errMess}) {
+
+function RenderCard(item, isLoading, errMess) {
+
+    if (item) {
+        return (
+            <CardImg />
+        );
+    }
 
     if (isLoading) {
         return (
@@ -41,21 +48,21 @@ function Home(props) {
             <div className="row">
                 <div className="col-md m-1">
                     <RenderCard 
-                        item={props.campsite}
+                        campsite={props.campsite}
                         isLoading={props.campsitesLoading}
                         errMess={props.campsitesErrMess}
                      />
                 </div>
                 <div className="col-md m-1">
                     <RenderCard
-                        item={props.promotion}
+                        promotion={props.promotion}
                         isLoading={props.promotionsLoading}
                         errMess={props.promotionsErrMess}
                       />
                 </div>
                 <div className="col-md m-1">
                     <RenderCard 
-                        item={props.partner}
+                        partner={props.partner}
                         isLoading={props.partnersLoading}
                         errMess={props.partnersErrMess}
                      />

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { Loading } from './LoadingComponent';
 import { baseUrl } from '../shared/baseUrl';
 
-function RenderDirectoryItem({campsite, onClick}) {
+function RenderDirectoryItem({campsite}) {
     return (
         <Card>
             <Link to={`/directory/${campsite.id}`}>
@@ -53,8 +53,12 @@ function Directory(props) {
                 <div className="row">
                     <div className="col">
                         <Breadcrumb>
-                            <BreadcrumbItem><Link to="/home">Home</Link></BreadcrumbItem>
-                            <BreadcrumbItem active>Directory</BreadcrumbItem>
+                            <BreadcrumbItem>
+                                <Link to="/home">Home</Link>
+                            </BreadcrumbItem>
+                            <BreadcrumbItem active>
+                                Directory
+                            </BreadcrumbItem>
                         </Breadcrumb>
                         <h2>Directory</h2>
                         <hr />
