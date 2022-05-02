@@ -74,7 +74,7 @@ import { Fade, Stagger } from 'react-animation-components';
     if ({partner}) {
         return (   
             <React.Fragment>
-                <Media object src={baseUrl + partner.image} alt={partner.name} width="150" />
+                <Media src={baseUrl + partner.image} alt={partner.name} width="150" />
                 <Media body className="ml-5 mb-4" >
                     <Media heading>
                         {partner.name}
@@ -92,16 +92,18 @@ import { Fade, Stagger } from 'react-animation-components';
 function PartnerList(props) {
 
     const partners = props.partners.partners.map(partner => {
+
          return (
              <div>
            
             <Fade in key={partner.id}>
                 <Media tag="li" >
-                    <RenderPartner partner={partner} />
+                    <RenderPartner partner={props.partners} />
                 </Media>
             </Fade>
             </div>
         );
+      
     });
         
     if (props.partners.isLoading) {
@@ -135,7 +137,9 @@ function PartnerList(props) {
            
               <div className="col mt-4">
                 <Media list>
-                    <Stagger in>{partners}
+                    <Stagger in>
+                        {partners} 
+
                     </Stagger>
                 
                     
@@ -144,4 +148,5 @@ function PartnerList(props) {
           </div>
         );
 
-         } export default About;
+         } 
+         export default About;

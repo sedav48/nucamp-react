@@ -202,7 +202,7 @@ export const addPartners= partners => ({
     
 });
 
-export const postFeedback = (feedback) => dispatch => {
+export const postFeedback = (feedback) =>  {
     const newComment = {
         ...feedback
     };
