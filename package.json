@@ -27,6 +27,7 @@
     "web": "0.0.2",
     "web-vitals": "^2.1.4"
   },
+ 
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -53,5 +54,5 @@
   },
   "devDependencies": {
     "@types/reactstrap": "^8.7.2"
-  }
+    }
 }

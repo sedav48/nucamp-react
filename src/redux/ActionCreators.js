@@ -202,14 +202,16 @@ export const addPartners= partners => ({
     
 });
 
-export const postFeedback = (feedback) => {
-
-    return fetch(baseUrl + 'feedback', {
-        method: "POST",
-        body: JSON.stringify(feedback),
-        
-        headers: {
-            "Content-type" : "application/json"
+export const postFeedback = (feedback) => dispatch => {
+    const newComment = {
+        ...feedback
+    };
+    console.log("hi")
+        return fetch(baseUrl + 'feedback', {
+            method: "POST",
+            body: JSON.stringify(feedback),
+            headers: {
+                "Content-type" : "application/json"
         }
     })
 
@@ -224,14 +226,12 @@ export const postFeedback = (feedback) => {
         }
     }, 
      error => { throw error; }
-)
+     
+    )
 
     .then(response => response.json())
-    .catch(response => {
-        console.log('post comment', response);
-        alert('Thank you for your feedback ' + response);
-    })
-
+    .then(console.log('Current state is: ' + JSON.stringify(newComment)))
+    .then(alert('Thank you for your feedback!  \r\n\r\n You Submitted: ' + JSON.stringify(newComment)))
     .catch(error => {
         console.log('post comment', error.message);
         alert(`Your feedback is not shown\nError: ' + error.message`);
