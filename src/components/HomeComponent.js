@@ -7,11 +7,11 @@ import { FadeTransform } from 'react-animation-components';
 
 function RenderCard(item, isLoading, errMess) {
 
-    if (item) {
-        return (
-            <CardImg />
-        );
-    }
+    // if (item) {
+    //     return (
+    //         <CardImg />
+    //     );
+    // }
 
     if (isLoading) {
         return (
@@ -19,10 +19,10 @@ function RenderCard(item, isLoading, errMess) {
         );
     }
 
-    if (errMess) {
+     if (errMess) {
         return (
-          <errMess  />
-         );
+          <h4>{errMess}</h4> 
+          );
     }
      return (
          <FadeTransform

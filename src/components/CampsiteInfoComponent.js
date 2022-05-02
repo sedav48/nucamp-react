@@ -51,35 +51,34 @@ const minLength = (len) => (val) => val && val.length >= len;
                         <ModalHeader toggle={this.toggleModal}>Submit Comment </ModalHeader>
                         <ModalBody>
                             <LocalForm onSubmit={this.handleSubmit}>
-                            
-                            <div className="form-group">
+                                <div className="form-group">
                                 <label htmlFor="rating">Rating</label>
-                                <Control.select
-                                    model= ".rating"
-                                    id="rating"
-                                    name="rating"
-                                    className="form-control" 
-                                    >
+                                    <Control.select
+                                        model= ".rating"
+                                        id="rating"
+                                        name="rating"
+                                        className="form-control"> 
+                                    
                                         <option>1</option>
                                         <option>2</option>
                                         <option>3</option>
                                         <option>4</option>
                                         <option>5</option>
-                                </Control.select>
-                            </div>
-                            <div className="form-group">
+                                    </Control.select>
+                                </div>
+                                <div className="form-group">
                                 <label htmlFor="author">Your Name</label>
-                                <Control.text
-                                    model=".author"
-                                    id="author"
-                                    name="author"
-                                    className="form-control"
-                                    placeholder="author" 
-                                    validators={{
-                                        minLength: minLength(2),
-                                        maxLength: maxLength(15),
-                                    }}
-                                />
+                                    <Control.text
+                                        model=".author"
+                                        id="author"
+                                        name="author"
+                                        className="form-control"
+                                        placeholder="author" 
+                                        validators={{
+                                            minLength: minLength(2),
+                                            maxLength: maxLength(15),
+                                        }}
+                                    />
                                 <Errors 
                                     className="text-danger"
                                     model=".author"
@@ -105,11 +104,10 @@ const minLength = (len) => (val) => val && val.length >= len;
                                   
                               </div>
                               <button>Submit Comment</button>
-                            </LocalForm>
-                        </ModalBody>
-                    </Modal>
-                
-            </React.Fragment>
+                                </LocalForm>
+                            </ModalBody>
+                        </Modal>
+                </React.Fragment>
             );
         }
         

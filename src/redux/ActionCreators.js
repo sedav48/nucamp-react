@@ -61,7 +61,6 @@ export const fetchComments = () => dispatch => {
         
         )
         .then(response => response.json())
-       
         .then(comments => dispatch(addComments(comments)))
         .catch(error => dispatch(commentsFailed(error.message)));
 };
